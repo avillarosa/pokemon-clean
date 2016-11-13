@@ -37,7 +37,6 @@ Pokemon *make_pokemon(element e, std::string n) {
 
 std::ostream &operator << (std::ostream &output, Pokemon &poke){
 
-	PokeEntry &pEntry;
 
 	output << "<pokemon>\n";
 	output << "  <id> " << poke.id << " </id>\n";
@@ -45,8 +44,8 @@ std::ostream &operator << (std::ostream &output, Pokemon &poke){
 	output << "  <attack> " << poke.attack << " </attack>\n";
 	output << "  <defense> " << poke.defense << " </defense>\n";
 	output << "  <entry>\n";
-	output << "    <number> " << pEntry.number << " </number>\n";
-	output << "    <name> " << pEntry.name << " </name>\n";
+	output << "    <number> " << poke.pEntry.number << " </number>\n";
+	output << "    <name> " << poke.pEntry.name << " </name>\n";
 	output << "  </entry>\n";
 	output << "</pokemon>";
 

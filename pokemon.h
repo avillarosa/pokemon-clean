@@ -24,6 +24,7 @@ private:
 	std::string name;
 	int level = 1;
 	int id;
+	PokeEntry pEntry;
 protected:
 	int maxHP = 20;
 	int currentHP = maxHP;
