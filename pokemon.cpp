@@ -47,4 +47,6 @@ std::ostream &operator << (std::ostream &output, Pokemon &poke, PokeEntry &pEntr
 	output << "    <name> " << pEntry.name << " </name>\n";
 	output << "  </entry>\n";
 	output << "</pokemon>";
+
+	return output;
 }
