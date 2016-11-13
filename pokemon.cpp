@@ -35,7 +35,9 @@ Pokemon *make_pokemon(element e, std::string n) {
 
 }
 
-std::ostream &operator << (std::ostream &output, Pokemon &poke, PokeEntry &pEntry){
+std::ostream &operator << (std::ostream &output, Pokemon &poke){
+
+	PokeEntry &pEntry;
 
 	output << "<pokemon>\n";
 	output << "  <id> " << poke.id << " </id>\n";
@@ -49,4 +51,17 @@ std::ostream &operator << (std::ostream &output, Pokemon &poke, PokeEntry &pEntr
 	output << "</pokemon>";
 
 	return output;
+}
+
+void Pokemon::write(){
+
+	Pokemon pokeData;
+
+	std::ofstream saveFile;
+	saveFile.open(this->id + ".dat");
+
+	saveFile << pokeData;
+
+	saveFile.close();
+
 }

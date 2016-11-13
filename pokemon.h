@@ -53,6 +53,8 @@ public:
 
 	friend std::ostream &operator << (std::ostream &output, Pokemon &poke);
 
+	void write();
+
 };
 
 class Fire: public Pokemon {
