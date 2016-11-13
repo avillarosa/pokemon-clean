@@ -43,8 +43,8 @@ std::ostream &operator << (std::ostream &output, Pokemon &poke, PokeEntry &pEntr
 	output << "  <attack> " << poke.attack << " </attack>\n";
 	output << "  <defense> " << poke.defense << " </defense>\n";
 	output << "  <entry>\n";
-	output << "    <number> " << pEntry.number << " </number\n";
-	output << "    <name> " << pEntry.name << " </name\n";
+	output << "    <number> " << pEntry.number << " </number>\n";
+	output << "    <name> " << pEntry.name << " </name>\n";
 	output << "  </entry>\n";
 	output << "</pokemon>";
 }
