@@ -90,20 +90,20 @@ public:
 // species classes for water
 class Squirtle: public Water {
 public:
-	Squirtle(std::string, int);
+	Squirtle(std::string);
 	int attack2(Pokemon *pokePtr);
 };
 
 class Wartortle: public Water {
 public:
-	Wartortle(std::string, int);
+	Wartortle(std::string);
 	int attack2(Pokemon *pokePtr);
 
 };
 
 class Blastoise: public Water {
 public:
-	Blastoise(std::string, int);
+	Blastoise(std::string);
 	int attack1(Pokemon *pokePtr);
 	int attack2(Pokemon *pokePtr);
 };
