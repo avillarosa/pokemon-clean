@@ -33,15 +33,15 @@ int Pokemon::take_damage(int damageAmount, std::list<element> damageTypes) {
 };
 
 //Constructors for water species classes
-Squirtle::Squirtle(std::string n, int index) : Water(index){
+Squirtle::Squirtle(std::string n, int index = 7) : Water(index){
 	this->get_name() = n;
 }
 
-Wartortle::Wartortle(std::string n, int index) : Water(index) {
+Wartortle::Wartortle(std::string n, int index = 8) : Water(index) {
 	this->get_name() = n;
 }
 
-Blastoise::Blastoise(std::string n, int index) : Water(index){
+Blastoise::Blastoise(std::string n, int index = 9) : Water(index){
 	this->get_name() = n;
 }
 
