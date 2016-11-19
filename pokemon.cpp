@@ -51,12 +51,12 @@ int Water::attack1(Pokemon *pokePtr){
 	std::list<element> ele;
 	ele.push_back(element::water);
 
-	int damage = pokePtr->take_damage(2, ele);
+	int damageAmt = pokePtr->take_damage(2, ele);
 
 	std::cout << pokePtr->get_name() << " used Bubble. ";
-	std::cout << pokePtr->get_species() << " took " << damage << " damage!\n";
+	std::cout << pokePtr->get_species() << " took " << damageAmt << " damage!\n";
 
-	return damage;
+	return 0;
 }
 
 int Blastoise::attack1(Pokemon *pokePtr){
@@ -65,12 +65,12 @@ int Blastoise::attack1(Pokemon *pokePtr){
 	ele.push_back(element::water);
 	ele.push_back(element::dragon);
 
-	int damage = pokePtr->take_damage(8, ele);
+	int damageAmt = pokePtr->take_damage(8, ele);
 
 	std::cout << pokePtr->get_name() << " used Water Pledge. ";
-	std::cout << pokePtr->get_species() << " took " << damage << " damage!\n";
+	std::cout << pokePtr->get_species() << " took " << damageAmt << " damage!\n";
 
-	return damage;
+	return 0;
 }
 
 int Squirtle::attack2(Pokemon *pokePtr){
@@ -78,12 +78,12 @@ int Squirtle::attack2(Pokemon *pokePtr){
 	std::list<element> ele;
 	ele.push_back(element::normal);
 
-	int damage = pokePtr->take_damage(2, ele);
+	int damageAmt = pokePtr->take_damage(2, ele);
 
 	std::cout << pokePtr->get_name() << " used Tackle. ";
-	std::cout << pokePtr->get_species() << " took " << damage << " damage!\n";
+	std::cout << pokePtr->get_species() << " took " << damageAmt << " damage!\n";
 
-	return damage;
+	return 0;
 }
 
 int Wartortle::attack2(Pokemon *pokePtr){
@@ -91,12 +91,12 @@ int Wartortle::attack2(Pokemon *pokePtr){
 	std::list<element> ele;
 	ele.push_back(element::water);
 
-	int damage = pokePtr->take_damage(4, ele);
+	int damageAmt = pokePtr->take_damage(4, ele);
 
 	std::cout << pokePtr->get_name() << " used Surf. ";
-	std::cout << pokePtr->get_species() << " took " << damage << " damage!\n";
+	std::cout << pokePtr->get_species() << " took " << damageAmt << " damage!\n";
 
-	return damage;
+	return 0;
 }
 
 int Blastoise::attack2(Pokemon *pokePtr){
@@ -104,12 +104,12 @@ int Blastoise::attack2(Pokemon *pokePtr){
 	std::list<element> ele;
 	ele.push_back(element::water);
 
-	int damage = pokePtr->take_damage(6, ele);
+	int damageAmt = pokePtr->take_damage(6, ele);
 
 	std::cout << pokePtr->get_name() << " used Hydro Cannon. ";
-	std::cout << pokePtr->get_species() << " took " << damage << " damage!\n";
+	std::cout << pokePtr->get_species() << " took " << damageAmt << " damage!\n";
 
-	return damage;
+	return 0;
 }
 
 Pokemon *make_pokemon(element e, std::string n) {
