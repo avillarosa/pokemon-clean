@@ -26,7 +26,7 @@ private:
 	std::string name;
 	int level = 1;
 	int id;
-	PokeEntry pEntry;
+	PokeEntry *pEntry;
 protected:
 	int maxHP = 20;
 	int currentHP = maxHP;
@@ -38,7 +38,7 @@ protected:
 	std::list<element> weaknesses;
 
 public:
-	Pokemon(int i) { pEntry.number = i; }
+	Pokemon(int i) { pEntry = new PokeEntry; pEntry->number = i; }
 	~Pokemon() {}
 	std::string get_name() {
 		return name;
@@ -53,12 +53,12 @@ public:
 		return currentHP;
 	}
 	std::string get_species() {
-		return pEntry.name;
+		return pEntry->name;
 	}
 
 	int take_damage(int damageAmount, std::list<element> damageTypes);
 
-	friend Pokemon* make_pokemon(element type, std::string name);
+	friend Pokemon* make_pokemon(int);
 
 	friend std::ostream &operator << (std::ostream &output, Pokemon &poke);
 

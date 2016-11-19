@@ -33,15 +33,15 @@ int Pokemon::take_damage(int damageAmount, std::list<element> damageTypes) {
 };
 
 //Constructors for water species classes
-Squirtle::Squirtle(std::string n, int index = 7) : Water(index){
+Squirtle::Squirtle(std::string n = "Squirtle", int index = 7) : Water(index){
 	this->name = n;
 }
 
-Wartortle::Wartortle(std::string n, int index = 8) : Water(index) {
+Wartortle::Wartortle(std::string n = "Wartortle", int index = 8) : Water(index) {
 	this->name = n;
 }
 
-Blastoise::Blastoise(std::string n, int index = 9) : Water(index){
+Blastoise::Blastoise(std::string n = "Blastoise", int index = 9) : Water(index){
 	this->name = n;
 }
 
@@ -112,21 +112,20 @@ int Blastoise::attack2(Pokemon *pokePtr){
 	return 0;
 }
 
-Pokemon *make_pokemon(element e, std::string n) {
+Pokemon *make_pokemon(int index) {
 
 	Pokemon *newPokemon;
-	if(e == element::fire) {
-		newPokemon = new Fire(1);
-		newPokemon->name = n;
-	} else if(e == element::grass) {
-		newPokemon = new Grass(1);
-		newPokemon->name = n;
-	} else if(e == element::water) {
-		newPokemon = new Water(1);
-		newPokemon->name = n;
-	}
-	return newPokemon;
 
+	switch (index){
+	case 7: newPokemon = new Squirtle;
+			break;
+	case 8: newPokemon = new Wartortle;
+			break;
+	case 9: newPokemon = new Blastoise;
+			break;
+	}
+
+	return newPokemon;
 }
 
 std::ostream &operator << (std::ostream &output, Pokemon &poke){
@@ -137,8 +136,8 @@ std::ostream &operator << (std::ostream &output, Pokemon &poke){
 	output << "  <attack> " << poke.attack << " </attack>\n";
 	output << "  <defense> " << poke.defense << " </defense>\n";
 	output << "  <entry>\n";
-	output << "    <number> " << poke.pEntry.number << " </number>\n";
-	output << "    <name> " << poke.pEntry.name << " </name>\n";
+	output << "    <number> " << poke.pEntry->number << " </number>\n";
+	output << "    <name> " << poke.pEntry->name << " </name>\n";
 	output << "  </entry>\n";
 	output << "</pokemon>";
 
