@@ -32,6 +32,86 @@ int Pokemon::take_damage(int damageAmount, std::list<element> damageTypes) {
 	return damageAmount;
 };
 
+//Constructors for water species classes
+Squirtle::Squirtle(std::string n, int index) : Water(index){
+	this->get_name() = n;
+}
+
+Wartortle::Wartortle(std::string n, int index) : Water(index) {
+	this->get_name() = n;
+}
+
+Blastoise::Blastoise(std::string n, int index) : Water(index){
+	this->get_name() = n;
+}
+
+//Functions attack1 and attack2
+int Water::attack1(Pokemon *pokePtr){
+
+	std::list<element> ele;
+	ele.push_back(element::water);
+
+	int damage = pokePtr->take_damage(2, ele);
+
+	std::cout << pokePtr->get_name() << " used Bubble. ";
+	std::cout << pokePtr->get_species() << " took " << damage << " damage!\n";
+
+	return damage;
+}
+
+int Blastoise::attack1(Pokemon *pokePtr){
+
+	std::list<element> ele;
+	ele.push_back(element::water);
+	ele.push_back(element::dragon);
+
+	int damage = pokePtr->take_damage(8, ele);
+
+	std::cout << pokePtr->get_name() << " used Water Pledge. ";
+	std::cout << pokePtr->get_species() << " took " << damage << " damage!\n";
+
+	return damage;
+}
+
+int Squirtle::attack2(Pokemon *pokePtr){
+
+	std::list<element> ele;
+	ele.push_back(element::normal);
+
+	int damage = pokePtr->take_damage(2, ele);
+
+	std::cout << pokePtr->get_name() << " used Tackle. ";
+	std::cout << pokePtr->get_species() << " took " << damage << " damage!\n";
+
+	return damage;
+}
+
+int Wartortle::attack2(Pokemon *pokePtr){
+
+	std::list<element> ele;
+	ele.push_back(element::water);
+
+	int damage = pokePtr->take_damage(4, ele);
+
+	std::cout << pokePtr->get_name() << " used Surf. ";
+	std::cout << pokePtr->get_species() << " took " << damage << " damage!\n";
+
+	return damage;
+}
+
+int Blastoise::attack2(Pokemon *pokePtr){
+
+	std::list<element> ele;
+	ele.push_back(element::water);
+
+	int damage = pokePtr->take_damage(6, ele);
+
+	std::cout << pokePtr->get_name() << " used Hydro Cannon. ";
+	std::cout << pokePtr->get_species() << " took " << damage << " damage!\n";
+
+	return damage;
+}
+
 Pokemon *make_pokemon(element e, std::string n) {
 
 	Pokemon *newPokemon;
@@ -50,7 +130,6 @@ Pokemon *make_pokemon(element e, std::string n) {
 }
 
 std::ostream &operator << (std::ostream &output, Pokemon &poke){
-
 
 	output << "<pokemon>\n";
 	output << "  <id> " << poke.id << " </id>\n";

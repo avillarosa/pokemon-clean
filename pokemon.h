@@ -38,7 +38,7 @@ protected:
 	std::list<element> weaknesses;
 
 public:
-	Pokemon(int i) {}
+	Pokemon(int i) { pEntry.number = i; }
 	~Pokemon() {}
 	std::string get_name() {
 		return name;
@@ -52,6 +52,9 @@ public:
 	int get_currentHP() {
 		return currentHP;
 	}
+	std::string get_species() {
+		return pEntry.name;
+	}
 
 	int take_damage(int damageAmount, std::list<element> damageTypes);
 
@@ -60,6 +63,10 @@ public:
 	friend std::ostream &operator << (std::ostream &output, Pokemon &poke);
 
 	void write();
+
+	// abstract functions attack1 and attack2
+	virtual int attack1(Pokemon *pokePtr) = 0;
+	virtual int attack2(Pokemon *pokePtr) = 0;
 
 };
 
@@ -71,11 +78,35 @@ public:
 class Water: public Pokemon {
 public:
 	Water(int index);
+	int attack1(Pokemon *pokePtr);
 };
 
 class Grass: public Pokemon {
 public:
 	Grass(int index);
 };
+
+
+// species classes for water
+class Squirtle: public Water {
+public:
+	Squirtle(std::string, int);
+	int attack2(Pokemon *pokePtr);
+};
+
+class Wartortle: public Water {
+public:
+	Wartortle(std::string, int);
+	int attack2(Pokemon *pokePtr);
+
+};
+
+class Blastoise: public Water {
+public:
+	Blastoise(std::string, int);
+	int attack1(Pokemon *pokePtr);
+	int attack2(Pokemon *pokePtr);
+};
+
 
 #endif // POKEMON_H
