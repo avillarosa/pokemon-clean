@@ -13,11 +13,19 @@ enum class element {
 
 struct PokeEntry {
 	int number;
-	std::string name;
-	std::string description;
-	std::string type;
-	PokeEntry(){};
-	PokeEntry(int n) {};
+	char name[20];
+	char type[10];
+	char description[200];
+	PokeEntry(int n) {
+		std::ifstream entryFile(std::to_string(n) + ".txt");
+		entryFile >> number;
+		entryFile >> name;
+		entryFile >> type;
+		entryFile.seekg(1, std::ios::cur);
+		entryFile.getline(description, 199);
+		entryFile.close();
+
+	};
 };
 
 
@@ -38,7 +46,9 @@ protected:
 	std::list<element> weaknesses;
 
 public:
-	Pokemon(int i) { pEntry = new PokeEntry; pEntry->number = i; }
+	Pokemon(int i) {
+		pEntry = new PokeEntry(i);
+	}
 	~Pokemon() {}
 	std::string get_name() {
 		return name;

@@ -33,16 +33,16 @@ int Pokemon::take_damage(int damageAmount, std::list<element> damageTypes) {
 };
 
 //Constructors for water species classes
-Squirtle::Squirtle(std::string n = "Squirtle") : Water(7){
-	this->name = n;
+Squirtle::Squirtle(std::string name = "Squirtle") : Water(7){
+	this->name = name;
 }
 
-Wartortle::Wartortle(std::string n = "Wartortle") : Water(8) {
-	this->name = n;
+Wartortle::Wartortle(std::string name = "Wartortle") : Water(8) {
+	this->name = name;
 }
 
-Blastoise::Blastoise(std::string n = "Blastoise") : Water(9){
-	this->name = n;
+Blastoise::Blastoise(std::string name = "Blastoise") : Water(9){
+	this->name = name;
 }
 
 //Functions attack1 and attack2
@@ -147,7 +147,7 @@ std::ostream &operator << (std::ostream &output, Pokemon &poke){
 void Pokemon::write(){
 
 	std::ofstream saveFile;
-	saveFile.open(this->id + ".dat");
+	saveFile.open(std::to_string(this->id) + ".dat");
 
 	saveFile << this;
 
