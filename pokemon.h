@@ -31,11 +31,11 @@ struct PokeEntry {
 
 class Pokemon {
 private:
-	std::string name;
 	int level = 1;
 	int id;
 	PokeEntry *pEntry;
 protected:
+	std::string name;
 	int maxHP = 20;
 	int currentHP = maxHP;
 	int speed = 10;
